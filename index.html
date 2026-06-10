@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#fff0f6">
+  <meta name="theme-color" content="#fff1f6">
   <title>甜心换装日记</title>
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -11,133 +11,241 @@
   <main class="game-shell">
     <!-- 首页 -->
     <section id="homePage" class="page home-page">
-      <div class="home-decoration decoration-one"></div>
-      <div class="home-decoration decoration-two"></div>
-
       <div class="home-card">
         <p class="eyebrow">DRESS UP H5</p>
         <h1>甜心换装日记</h1>
-        <p class="home-subtitle">挑选喜欢的服装，完成属于你的主题搭配。</p>
-
-        <div class="home-actions">
-          <button id="startButton" class="primary-button" type="button">自由换装</button>
-          <button id="storyModeButton" class="secondary-button story-mode-button" type="button">
-            剧情模式
-          </button>
-          <button id="shopButton" class="secondary-button" type="button">服装商店</button>
-        </div>
-
-        <p class="home-coin">当前金币：<strong><span class="coin-amount">1000</span></strong></p>
-      </div>
-    </section>
-
-    <!-- 剧情模式 -->
-    <section id="storyPage" class="page story-page is-hidden">
-      <header class="game-header">
-        <button id="storyBackButton" class="icon-button" type="button">返回</button>
-        <h2 id="storyPageTitle">选择章节</h2>
-        <span aria-hidden="true"></span>
-      </header>
-
-      <div id="chapterSelectView" class="chapter-select-view">
-        <p class="story-intro">选择一个章节，剧情结束后会进入对应的主题换装关卡。</p>
-        <div id="chapterList" class="chapter-list"></div>
-      </div>
-
-      <div id="dialogueView" class="dialogue-view is-hidden">
-        <div class="story-scene">
-          <div class="story-scene-content">
-            <p id="storyChapterLabel" class="eyebrow">CHAPTER 01</p>
-            <h2 id="storyChapterTitle">剧情章节</h2>
-          </div>
-        </div>
-
-        <div class="dialogue-box">
-          <img id="dialogueAvatar" class="dialogue-avatar" src="./assets/character/body.png" alt="角色头像">
-          <div class="dialogue-content">
-            <strong id="dialogueSpeaker" class="dialogue-speaker">小晴</strong>
-            <p id="dialogueText" class="dialogue-text">故事即将开始……</p>
-            <div class="dialogue-footer">
-              <span id="dialogueProgress" class="dialogue-progress">1 / 1</span>
-              <button id="nextDialogueButton" class="primary-button small" type="button">下一句</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 商店 -->
-    <section id="shopPage" class="page shop-page is-hidden">
-      <header class="game-header">
-        <button id="shopBackButton" class="icon-button" type="button">返回</button>
-        <h2>服装商店</h2>
-        <div class="header-actions">
-          <span class="coin-badge">金币 <strong class="coin-amount">1000</strong></span>
-        </div>
-      </header>
-
-      <div class="shop-panel">
-        <div class="shop-intro">
-          <div>
-            <h3>今日衣橱</h3>
-            <p>使用金币购买服装，购买后会自动加入本地衣柜。</p>
-          </div>
-          <span id="ownedCount" class="owned-count">已拥有 0 / 0</span>
-        </div>
-        <div id="shopCategoryTabs" class="category-tabs" aria-label="商店分类"></div>
-        <div id="shopList" class="shop-list"></div>
+        <p class="home-description">
+          自由组合上装和下装，或者换上一整套连衣裙。
+        </p>
+        <button id="startButton" class="primary-button" type="button">开始换装</button>
       </div>
     </section>
 
     <!-- 换装页 -->
     <section id="dressPage" class="page dress-page is-hidden">
       <header class="game-header">
-        <button id="backButton" class="icon-button" type="button">返回</button>
-        <h2>甜心衣橱</h2>
-        <div class="header-actions">
-          <span class="coin-badge">金币 <strong class="coin-amount">1000</strong></span>
-          <button id="dressShopButton" class="secondary-button" type="button">商店</button>
+        <button id="backButton" class="text-button" type="button">返回首页</button>
+        <div>
+          <p class="eyebrow">MY WARDROBE</p>
+          <h2>甜心衣橱</h2>
         </div>
+        <span class="header-placeholder" aria-hidden="true"></span>
       </header>
 
       <div class="dress-layout">
+        <!-- 背景层与完整人物立绘层互相独立，不使用上装、下装图片图层。 -->
         <section class="character-panel" aria-label="角色预览">
-          <div id="characterStage" class="character-stage">
-            <!-- 图层顺序：背景、身体、鞋子、下装、上衣、发型、饰品 -->
-            <img id="layer-bg" class="character-layer layer-bg" src="./assets/bg/bg_01.png" alt="">
-            <img class="character-layer layer-body" src="./assets/character/body.png" alt="主角">
-            <img id="layer-shoes" class="character-layer layer-shoes" alt="">
-            <img id="layer-bottom" class="character-layer layer-bottom" alt="">
-            <img id="layer-top" class="character-layer layer-top" alt="">
-            <img id="layer-hair" class="character-layer layer-hair" alt="">
-            <img id="layer-accessory" class="character-layer layer-accessory" alt="">
+          <div class="character-stage">
+            <img
+              id="bgImage"
+              class="bg-layer"
+              src="assets/bg/bg_01.png"
+              alt=""
+            >
+            <img
+              id="characterImage"
+              class="character-layer"
+              src="assets/character/base.png"
+              alt="当前人物搭配"
+            >
           </div>
 
           <div class="background-picker">
             <span>切换背景</span>
-            <div id="backgroundButtons" class="background-buttons"></div>
+            <div id="backgroundOptions" class="background-options">
+              <button
+                class="background-button is-active"
+                type="button"
+                data-bg="assets/bg/bg_01.png"
+                aria-label="切换到粉色卧室"
+                aria-pressed="true"
+              >
+                <img src="assets/bg/bg_01.png" alt="">
+              </button>
+              <button
+                class="background-button"
+                type="button"
+                data-bg="assets/bg/bg_02.png"
+                aria-label="切换到樱花公园"
+                aria-pressed="false"
+              >
+                <img src="assets/bg/bg_02.png" alt="">
+              </button>
+              <button
+                class="background-button"
+                type="button"
+                data-bg="assets/bg/bg_03.png"
+                aria-label="切换到水晶宫殿"
+                aria-pressed="false"
+              >
+                <img src="assets/bg/bg_03.png" alt="">
+              </button>
+            </div>
+          </div>
+
+          <div class="current-selection" aria-live="polite">
+            <p>上装：<strong id="currentTopText">未选择</strong></p>
+            <p>下装：<strong id="currentBottomText">未选择</strong></p>
+            <p>连衣裙：<strong id="currentDressText">未选择</strong></p>
           </div>
         </section>
 
-        <section class="wardrobe-panel" aria-label="换装衣柜">
-          <div class="level-panel">
-            <div class="level-heading">
-              <div>
-                <p class="level-label">THEME CHALLENGE</p>
-                <h3 id="levelTitle">加载主题中</h3>
-              </div>
-              <select id="levelSelect" aria-label="选择主题关卡"></select>
-            </div>
-            <p id="levelDescription" class="level-description"></p>
-            <div class="level-meta">
-              <div id="levelTags" class="level-tags"></div>
-              <span id="levelPassScore" class="pass-score"></span>
-            </div>
-            <button id="scoreButton" class="score-button" type="button">开始评分</button>
+        <!-- 服装选择区 -->
+        <section class="wardrobe-panel" aria-label="服装选择">
+          <div class="wardrobe-heading">
+            <p class="eyebrow">CHOOSE YOUR LOOK</p>
+            <h2>选择服装</h2>
+            <p>上装和下装可以自由组合，连衣裙会替换整套搭配。</p>
           </div>
 
-          <div id="categoryTabs" class="category-tabs" aria-label="服装分类"></div>
-          <div id="clothesList" class="clothes-list"></div>
+          <!-- 分类按钮只负责切换列表，不会改变当前穿搭。 -->
+          <div class="category-tabs" role="tablist" aria-label="服装分类">
+            <button
+              class="category-button is-active"
+              type="button"
+              role="tab"
+              data-category="top"
+              aria-controls="topPanel"
+              aria-selected="true"
+            >上装</button>
+            <button
+              class="category-button"
+              type="button"
+              role="tab"
+              data-category="bottom"
+              aria-controls="bottomPanel"
+              aria-selected="false"
+            >下装</button>
+            <button
+              class="category-button"
+              type="button"
+              role="tab"
+              data-category="dress"
+              aria-controls="dressPanel"
+              aria-selected="false"
+            >连衣裙</button>
+          </div>
+
+          <section
+            id="topPanel"
+            class="clothes-section category-panel"
+            data-category-panel="top"
+            aria-labelledby="topTitle"
+          >
+            <h3 id="topTitle">上装</h3>
+            <div id="topOptions" class="clothes-grid">
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="top"
+                data-id="top1"
+                aria-label="选择粉色蝴蝶结上衣"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/top/top1_thumb.png" alt="">
+                </span>
+                <span>粉色蝴蝶结上衣</span>
+              </button>
+
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="top"
+                data-id="top2"
+                aria-label="选择蓝色学院风上衣"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/top/top2_thumb.png" alt="">
+                </span>
+                <span>蓝色学院风上衣</span>
+              </button>
+
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="top"
+                data-id="top3"
+                aria-label="选择粉色领结白衬衫"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/top/top3_thumb.png" alt="">
+                </span>
+                <span>粉色领结白衬衫</span>
+              </button>
+            </div>
+          </section>
+
+          <section
+            id="bottomPanel"
+            class="clothes-section category-panel is-hidden"
+            data-category-panel="bottom"
+            aria-labelledby="bottomTitle"
+          >
+            <h3 id="bottomTitle">下装</h3>
+            <div id="bottomOptions" class="clothes-grid">
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="bottom"
+                data-id="bottom1"
+                aria-label="选择百褶短裙"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/bottom/bottom1_thumb.png" alt="">
+                </span>
+                <span>百褶短裙</span>
+              </button>
+
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="bottom"
+                data-id="bottom2"
+                aria-label="选择奶油色短裤"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/bottom/bottom2_thumb.png" alt="">
+                </span>
+                <span>奶油色短裤</span>
+              </button>
+
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="bottom"
+                data-id="bottom3"
+                aria-label="选择深蓝通勤半身裙"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/bottom/bottom3_thumb.png" alt="">
+                </span>
+                <span>深蓝通勤半身裙</span>
+              </button>
+            </div>
+          </section>
+
+          <section
+            id="dressPanel"
+            class="clothes-section category-panel is-hidden"
+            data-category-panel="dress"
+            aria-labelledby="dressTitle"
+          >
+            <h3 id="dressTitle">连衣裙</h3>
+            <div id="dressOptions" class="clothes-grid">
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="dress"
+                data-id="dress1"
+                aria-label="选择甜心蝴蝶结连衣裙"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/dress/dress1_thumb.png" alt="">
+                </span>
+                <span>甜心蝴蝶结连衣裙</span>
+              </button>
+            </div>
+          </section>
 
           <div class="action-bar">
             <button id="clearButton" class="secondary-button" type="button">清空搭配</button>
@@ -149,24 +257,9 @@
     </section>
   </main>
 
-  <!-- 评分结果 -->
-  <div id="scoreModal" class="score-modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="scoreModalTitle">
-    <div class="score-card">
-      <button id="closeScoreButton" class="score-close" type="button" aria-label="关闭评分结果">×</button>
-      <h2 id="scoreModalTitle">搭配评分</h2>
-      <div class="score-summary">
-        <div id="scoreGrade" class="score-grade">S</div>
-        <div>
-          <strong id="scoreTotal" class="score-total">0 分</strong>
-          <p id="scorePassText" class="score-pass-text"></p>
-        </div>
-      </div>
-      <div id="scoreDetails" class="score-details"></div>
-      <button id="confirmScoreButton" class="primary-button" type="button">继续搭配</button>
-    </div>
-  </div>
-
+  <!-- 操作结果提示 -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
   <script src="./main.js"></script>
 </body>
 </html>
