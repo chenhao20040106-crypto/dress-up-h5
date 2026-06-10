@@ -1,0 +1,561 @@
+{
+  "categories": [
+    {
+      "id": "hair",
+      "name": "发型",
+      "items": [
+        {
+          "id": "hair_01",
+          "name": "栗棕自然长卷发",
+          "type": "hair",
+          "src": "assets/clothes/hair/hair_01.png",
+          "thumbnail": "assets/clothes/hair/hair_01.png",
+          "price": 80,
+          "styleTags": ["elegant", "daily", "sweet"],
+          "score": {
+            "sweet": 8,
+            "cool": 2,
+            "elegant": 9,
+            "cute": 7,
+            "daily": 10,
+            "party": 4
+          }
+        },
+        {
+          "id": "hair_02",
+          "name": "奶茶色空气刘海",
+          "type": "hair",
+          "src": "assets/clothes/hair/hair_02.png",
+          "thumbnail": "assets/clothes/hair/hair_02.png",
+          "price": 120,
+          "styleTags": ["sweet", "cute", "daily"],
+          "score": {
+            "sweet": 10,
+            "cool": 1,
+            "elegant": 6,
+            "cute": 9,
+            "daily": 9,
+            "party": 3
+          }
+        },
+        {
+          "id": "hair_03",
+          "name": "樱粉双马尾",
+          "type": "hair",
+          "src": "assets/clothes/hair/hair_03.png",
+          "thumbnail": "assets/clothes/hair/hair_03.png",
+          "price": 160,
+          "styleTags": ["sweet", "cute", "party"],
+          "score": {
+            "sweet": 10,
+            "cool": 2,
+            "elegant": 3,
+            "cute": 10,
+            "daily": 5,
+            "party": 8
+          }
+        },
+        {
+          "id": "hair_04",
+          "name": "雾蓝齐肩短发",
+          "type": "hair",
+          "src": "assets/clothes/hair/hair_04.png",
+          "thumbnail": "assets/clothes/hair/hair_04.png",
+          "price": 220,
+          "styleTags": ["cool", "daily", "elegant"],
+          "score": {
+            "sweet": 4,
+            "cool": 9,
+            "elegant": 7,
+            "cute": 6,
+            "daily": 9,
+            "party": 5
+          }
+        },
+        {
+          "id": "hair_05",
+          "name": "黑茶高马尾",
+          "type": "hair",
+          "src": "assets/clothes/hair/hair_05.png",
+          "thumbnail": "assets/clothes/hair/hair_05.png",
+          "price": 300,
+          "styleTags": ["cool", "elegant", "daily"],
+          "score": {
+            "sweet": 3,
+            "cool": 10,
+            "elegant": 8,
+            "cute": 4,
+            "daily": 8,
+            "party": 7
+          }
+        },
+        {
+          "id": "hair_06",
+          "name": "金色公主编发",
+          "type": "hair",
+          "src": "assets/clothes/hair/hair_06.png",
+          "thumbnail": "assets/clothes/hair/hair_06.png",
+          "price": 420,
+          "styleTags": ["elegant", "sweet", "party"],
+          "score": {
+            "sweet": 8,
+            "cool": 2,
+            "elegant": 10,
+            "cute": 7,
+            "daily": 4,
+            "party": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "top",
+      "name": "上衣",
+      "items": [
+        {
+          "id": "top_01",
+          "name": "海军蓝蝴蝶结衬衫",
+          "type": "top",
+          "src": "assets/clothes/top/top_01.png",
+          "thumbnail": "assets/clothes/top/top_01.png",
+          "price": 80,
+          "styleTags": ["sweet", "elegant", "daily"],
+          "score": {
+            "sweet": 9,
+            "cool": 3,
+            "elegant": 9,
+            "cute": 8,
+            "daily": 9,
+            "party": 5
+          }
+        },
+        {
+          "id": "top_02",
+          "name": "樱花粉荷叶边上衣",
+          "type": "top",
+          "src": "assets/clothes/top/top_02.png",
+          "thumbnail": "assets/clothes/top/top_02.png",
+          "price": 120,
+          "styleTags": ["sweet", "cute", "daily"],
+          "score": {
+            "sweet": 10,
+            "cool": 1,
+            "elegant": 6,
+            "cute": 10,
+            "daily": 8,
+            "party": 5
+          }
+        },
+        {
+          "id": "top_03",
+          "name": "雾蓝蝴蝶结吊带",
+          "type": "top",
+          "src": "assets/clothes/top/top_03.png",
+          "thumbnail": "assets/clothes/top/top_03.png",
+          "price": 160,
+          "styleTags": ["sweet", "elegant", "party"],
+          "score": {
+            "sweet": 8,
+            "cool": 4,
+            "elegant": 9,
+            "cute": 8,
+            "daily": 5,
+            "party": 9
+          }
+        },
+        {
+          "id": "top_04",
+          "name": "奶油白针织开衫",
+          "type": "top",
+          "src": "assets/clothes/top/top_04.png",
+          "thumbnail": "assets/clothes/top/top_04.png",
+          "price": 220,
+          "styleTags": ["daily", "elegant", "sweet"],
+          "score": {
+            "sweet": 7,
+            "cool": 2,
+            "elegant": 8,
+            "cute": 6,
+            "daily": 10,
+            "party": 3
+          }
+        },
+        {
+          "id": "top_05",
+          "name": "黑色星月短夹克",
+          "type": "top",
+          "src": "assets/clothes/top/top_05.png",
+          "thumbnail": "assets/clothes/top/top_05.png",
+          "price": 300,
+          "styleTags": ["cool", "party", "daily"],
+          "score": {
+            "sweet": 2,
+            "cool": 10,
+            "elegant": 5,
+            "cute": 4,
+            "daily": 7,
+            "party": 9
+          }
+        },
+        {
+          "id": "top_06",
+          "name": "薰衣草泡泡袖上衣",
+          "type": "top",
+          "src": "assets/clothes/top/top_06.png",
+          "thumbnail": "assets/clothes/top/top_06.png",
+          "price": 420,
+          "styleTags": ["elegant", "sweet", "party"],
+          "score": {
+            "sweet": 9,
+            "cool": 2,
+            "elegant": 10,
+            "cute": 8,
+            "daily": 5,
+            "party": 9
+          }
+        }
+      ]
+    },
+    {
+      "id": "bottom",
+      "name": "下装",
+      "items": [
+        {
+          "id": "bottom_01",
+          "name": "奶油白百褶裙",
+          "type": "bottom",
+          "src": "assets/clothes/bottom/bottom_01.png",
+          "thumbnail": "assets/clothes/bottom/bottom_01.png",
+          "price": 80,
+          "styleTags": ["sweet", "cute", "daily"],
+          "score": {
+            "sweet": 9,
+            "cool": 2,
+            "elegant": 7,
+            "cute": 9,
+            "daily": 10,
+            "party": 5
+          }
+        },
+        {
+          "id": "bottom_02",
+          "name": "浅蓝高腰牛仔裤",
+          "type": "bottom",
+          "src": "assets/clothes/bottom/bottom_02.png",
+          "thumbnail": "assets/clothes/bottom/bottom_02.png",
+          "price": 120,
+          "styleTags": ["daily", "cool", "cute"],
+          "score": {
+            "sweet": 4,
+            "cool": 8,
+            "elegant": 4,
+            "cute": 6,
+            "daily": 10,
+            "party": 3
+          }
+        },
+        {
+          "id": "bottom_03",
+          "name": "樱粉蝴蝶结短裙",
+          "type": "bottom",
+          "src": "assets/clothes/bottom/bottom_03.png",
+          "thumbnail": "assets/clothes/bottom/bottom_03.png",
+          "price": 160,
+          "styleTags": ["sweet", "cute", "party"],
+          "score": {
+            "sweet": 10,
+            "cool": 1,
+            "elegant": 6,
+            "cute": 10,
+            "daily": 6,
+            "party": 8
+          }
+        },
+        {
+          "id": "bottom_04",
+          "name": "深灰格纹学院裙",
+          "type": "bottom",
+          "src": "assets/clothes/bottom/bottom_04.png",
+          "thumbnail": "assets/clothes/bottom/bottom_04.png",
+          "price": 220,
+          "styleTags": ["cool", "daily", "elegant"],
+          "score": {
+            "sweet": 4,
+            "cool": 9,
+            "elegant": 8,
+            "cute": 6,
+            "daily": 9,
+            "party": 5
+          }
+        },
+        {
+          "id": "bottom_05",
+          "name": "薄荷绿蓬蓬裙",
+          "type": "bottom",
+          "src": "assets/clothes/bottom/bottom_05.png",
+          "thumbnail": "assets/clothes/bottom/bottom_05.png",
+          "price": 300,
+          "styleTags": ["sweet", "elegant", "party"],
+          "score": {
+            "sweet": 9,
+            "cool": 2,
+            "elegant": 9,
+            "cute": 8,
+            "daily": 4,
+            "party": 10
+          }
+        },
+        {
+          "id": "bottom_06",
+          "name": "黑色星光短裤",
+          "type": "bottom",
+          "src": "assets/clothes/bottom/bottom_06.png",
+          "thumbnail": "assets/clothes/bottom/bottom_06.png",
+          "price": 420,
+          "styleTags": ["cool", "party", "daily"],
+          "score": {
+            "sweet": 2,
+            "cool": 10,
+            "elegant": 5,
+            "cute": 4,
+            "daily": 7,
+            "party": 9
+          }
+        }
+      ]
+    },
+    {
+      "id": "shoes",
+      "name": "鞋子",
+      "items": [
+        {
+          "id": "shoes_01",
+          "name": "奶油蝴蝶结玛丽珍鞋",
+          "type": "shoes",
+          "src": "assets/clothes/shoes/shoes_01.png",
+          "thumbnail": "assets/clothes/shoes/shoes_01.png",
+          "price": 80,
+          "styleTags": ["sweet", "cute", "elegant"],
+          "score": {
+            "sweet": 10,
+            "cool": 1,
+            "elegant": 8,
+            "cute": 10,
+            "daily": 8,
+            "party": 6
+          }
+        },
+        {
+          "id": "shoes_02",
+          "name": "白色软底运动鞋",
+          "type": "shoes",
+          "src": "assets/clothes/shoes/shoes_02.png",
+          "thumbnail": "assets/clothes/shoes/shoes_02.png",
+          "price": 120,
+          "styleTags": ["daily", "cute", "cool"],
+          "score": {
+            "sweet": 5,
+            "cool": 7,
+            "elegant": 3,
+            "cute": 7,
+            "daily": 10,
+            "party": 3
+          }
+        },
+        {
+          "id": "shoes_03",
+          "name": "樱粉圆头小皮鞋",
+          "type": "shoes",
+          "src": "assets/clothes/shoes/shoes_03.png",
+          "thumbnail": "assets/clothes/shoes/shoes_03.png",
+          "price": 160,
+          "styleTags": ["sweet", "cute", "daily"],
+          "score": {
+            "sweet": 10,
+            "cool": 1,
+            "elegant": 6,
+            "cute": 9,
+            "daily": 9,
+            "party": 5
+          }
+        },
+        {
+          "id": "shoes_04",
+          "name": "黑色系带短靴",
+          "type": "shoes",
+          "src": "assets/clothes/shoes/shoes_04.png",
+          "thumbnail": "assets/clothes/shoes/shoes_04.png",
+          "price": 220,
+          "styleTags": ["cool", "party", "daily"],
+          "score": {
+            "sweet": 2,
+            "cool": 10,
+            "elegant": 6,
+            "cute": 3,
+            "daily": 7,
+            "party": 9
+          }
+        },
+        {
+          "id": "shoes_05",
+          "name": "雾蓝水晶高跟鞋",
+          "type": "shoes",
+          "src": "assets/clothes/shoes/shoes_05.png",
+          "thumbnail": "assets/clothes/shoes/shoes_05.png",
+          "price": 300,
+          "styleTags": ["elegant", "party", "sweet"],
+          "score": {
+            "sweet": 7,
+            "cool": 4,
+            "elegant": 10,
+            "cute": 6,
+            "daily": 3,
+            "party": 10
+          }
+        },
+        {
+          "id": "shoes_06",
+          "name": "薰衣草绑带凉鞋",
+          "type": "shoes",
+          "src": "assets/clothes/shoes/shoes_06.png",
+          "thumbnail": "assets/clothes/shoes/shoes_06.png",
+          "price": 420,
+          "styleTags": ["elegant", "sweet", "party"],
+          "score": {
+            "sweet": 8,
+            "cool": 3,
+            "elegant": 9,
+            "cute": 7,
+            "daily": 5,
+            "party": 9
+          }
+        }
+      ]
+    },
+    {
+      "id": "accessory",
+      "name": "饰品",
+      "items": [
+        {
+          "id": "accessory_01",
+          "name": "海军蓝丝带发夹",
+          "type": "accessory",
+          "src": "assets/clothes/accessory/accessory_01.png",
+          "thumbnail": "assets/clothes/accessory/accessory_01.png",
+          "price": 80,
+          "styleTags": ["sweet", "elegant", "daily"],
+          "score": {
+            "sweet": 9,
+            "cool": 3,
+            "elegant": 8,
+            "cute": 9,
+            "daily": 8,
+            "party": 6
+          }
+        },
+        {
+          "id": "accessory_02",
+          "name": "珍珠爱心项链",
+          "type": "accessory",
+          "src": "assets/clothes/accessory/accessory_02.png",
+          "thumbnail": "assets/clothes/accessory/accessory_02.png",
+          "price": 120,
+          "styleTags": ["elegant", "sweet", "party"],
+          "score": {
+            "sweet": 8,
+            "cool": 2,
+            "elegant": 10,
+            "cute": 8,
+            "daily": 6,
+            "party": 9
+          }
+        },
+        {
+          "id": "accessory_03",
+          "name": "樱桃迷你手提包",
+          "type": "accessory",
+          "src": "assets/clothes/accessory/accessory_03.png",
+          "thumbnail": "assets/clothes/accessory/accessory_03.png",
+          "price": 160,
+          "styleTags": ["sweet", "cute", "daily"],
+          "score": {
+            "sweet": 10,
+            "cool": 2,
+            "elegant": 5,
+            "cute": 10,
+            "daily": 8,
+            "party": 7
+          }
+        },
+        {
+          "id": "accessory_04",
+          "name": "银色星月耳饰",
+          "type": "accessory",
+          "src": "assets/clothes/accessory/accessory_04.png",
+          "thumbnail": "assets/clothes/accessory/accessory_04.png",
+          "price": 220,
+          "styleTags": ["cool", "elegant", "party"],
+          "score": {
+            "sweet": 3,
+            "cool": 9,
+            "elegant": 9,
+            "cute": 4,
+            "daily": 5,
+            "party": 10
+          }
+        },
+        {
+          "id": "accessory_05",
+          "name": "奶油贝雷帽",
+          "type": "accessory",
+          "src": "assets/clothes/accessory/accessory_05.png",
+          "thumbnail": "assets/clothes/accessory/accessory_05.png",
+          "price": 300,
+          "styleTags": ["daily", "cute", "elegant"],
+          "score": {
+            "sweet": 7,
+            "cool": 5,
+            "elegant": 8,
+            "cute": 8,
+            "daily": 10,
+            "party": 4
+          }
+        },
+        {
+          "id": "accessory_06",
+          "name": "梦幻水晶皇冠",
+          "type": "accessory",
+          "src": "assets/clothes/accessory/accessory_06.png",
+          "thumbnail": "assets/clothes/accessory/accessory_06.png",
+          "price": 420,
+          "styleTags": ["elegant", "party", "sweet"],
+          "score": {
+            "sweet": 7,
+            "cool": 4,
+            "elegant": 10,
+            "cute": 6,
+            "daily": 2,
+            "party": 10
+          }
+        }
+      ]
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "bg-1",
+      "name": "粉色卧室",
+      "image": "assets/bg/bg_01.png"
+    },
+    {
+      "id": "bg-2",
+      "name": "水晶宫殿",
+      "image": "assets/bg/bg_02.png"
+    },
+    {
+      "id": "bg-3",
+      "name": "樱花公园",
+      "image": "assets/bg/bg_03.png"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "chapters": [
+    {
+      "chapterId": "chapter_01",
+      "title": "第一章：花园的邀请函",
+      "description": "小晴收到了神秘的下午茶邀请，需要准备一套甜美可爱的造型。",
+      "levelId": "level_01",
+      "dialogues": [
+        {
+          "speaker": "小晴",
+          "text": "咦？窗边怎么多了一封粉色的邀请函？",
+          "avatar": "assets/character/body.png"
+        },
+        {
+          "speaker": "米娅",
+          "text": "这是花园下午茶的邀请函！听说今天还有最佳穿搭评选呢。",
+          "avatar": "assets/clothes/hair/hair_03.png"
+        },
+        {
+          "speaker": "小晴",
+          "text": "那我要选择甜美又可爱的衣服，让自己看起来像春天一样明亮。",
+          "avatar": "assets/character/body.png"
+        },
+        {
+          "speaker": "米娅",
+          "text": "好主意！蝴蝶结和柔和的颜色一定很适合这个主题。",
+          "avatar": "assets/clothes/hair/hair_03.png"
+        }
+      ]
+    },
+    {
+      "chapterId": "chapter_02",
+      "title": "第二章：街角摄影挑战",
+      "description": "时尚摄影师邀请小晴拍摄街头专题，今天的关键词是酷感与日常。",
+      "levelId": "level_02",
+      "dialogues": [
+        {
+          "speaker": "摄影师阿洛",
+          "text": "小晴，我正在拍摄一组城市街头照片，你愿意成为今天的模特吗？",
+          "avatar": "assets/clothes/accessory/accessory_04.png"
+        },
+        {
+          "speaker": "小晴",
+          "text": "当然愿意！不过街头主题应该穿什么呢？",
+          "avatar": "assets/character/body.png"
+        },
+        {
+          "speaker": "摄影师阿洛",
+          "text": "选择利落、有个性但适合日常活动的单品，镜头会捕捉你的自信。",
+          "avatar": "assets/clothes/accessory/accessory_04.png"
+        },
+        {
+          "speaker": "小晴",
+          "text": "明白了，我要用酷感搭配完成这次摄影挑战！",
+          "avatar": "assets/character/body.png"
+        }
+      ]
+    },
+    {
+      "chapterId": "chapter_03",
+      "title": "第三章：星光音乐会",
+      "description": "露娜送来音乐会门票，小晴要以优雅的派对造型出席。",
+      "levelId": "level_03",
+      "dialogues": [
+        {
+          "speaker": "店长露娜",
+          "text": "今晚有一场星光音乐会，我特意为你留了一张前排门票。",
+          "avatar": "assets/clothes/accessory/accessory_06.png"
+        },
+        {
+          "speaker": "小晴",
+          "text": "太惊喜了！这样的场合，我是不是应该打扮得正式一点？",
+          "avatar": "assets/character/body.png"
+        },
+        {
+          "speaker": "店长露娜",
+          "text": "没错。优雅与派对感是今晚的主题，精致饰品也会为造型加分。",
+          "avatar": "assets/clothes/accessory/accessory_06.png"
+        },
+        {
+          "speaker": "小晴",
+          "text": "那就开始准备吧，我想带着最闪亮的心情走进音乐厅。",
+          "avatar": "assets/character/body.png"
+        }
+      ]
+    }
+  ]
+}
