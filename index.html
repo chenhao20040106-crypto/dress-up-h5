@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fff1f6">
   <title>甜心换装日记</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=20260614-2">
 </head>
 <body>
   <main class="game-shell">
@@ -15,9 +15,55 @@
         <p class="eyebrow">DRESS UP H5</p>
         <h1>甜心换装日记</h1>
         <p class="home-description">
-          自由组合上装和下装，或者换上一整套连衣裙。
+          切换喜欢的发型，自由组合服装与鞋子。
         </p>
-        <button id="startButton" class="primary-button" type="button">开始换装</button>
+        <div class="home-actions">
+          <button id="startButton" class="primary-button" type="button">自由换装</button>
+          <button id="storyModeButton" class="secondary-button" type="button">剧情模式</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 剧情关卡选择页 -->
+    <section id="storyLevelPage" class="page story-level-page is-hidden">
+      <header class="game-header">
+        <button id="storyBackButton" class="text-button" type="button">返回首页</button>
+        <div>
+          <p class="eyebrow">STORY MODE</p>
+          <h2>剧情关卡</h2>
+        </div>
+        <span class="header-placeholder" aria-hidden="true"></span>
+      </header>
+
+      <div class="chapter-card">
+        <div class="chapter-heading">
+          <div>
+            <p class="eyebrow">CHAPTER 01</p>
+            <h2 id="storyChapterName">第一章：初入搭配职场</h2>
+            <p id="storyChapterDescription">在不同场合中学习合适的搭配。</p>
+          </div>
+          <span id="chapterProgress">0 / 4 已通关</span>
+        </div>
+        <div id="storyLevelList" class="story-level-list"></div>
+      </div>
+    </section>
+
+    <!-- 剧情评分完成后的结果页。 -->
+    <section id="storyResultPage" class="page story-result-page is-hidden">
+      <div class="story-final-card">
+        <div id="successResultView" class="story-final-view is-hidden">
+          <p class="eyebrow">MISSION COMPLETE</p>
+          <h2>通关成功</h2>
+          <p>你完成了本关搭配任务。</p>
+        </div>
+        <div id="failResultView" class="story-final-view is-hidden">
+          <p class="eyebrow">TRY AGAIN</p>
+          <h2>挑战失败</h2>
+          <p>这次搭配没有达到关卡要求。</p>
+        </div>
+        <button id="backToChapterBtn" class="primary-button" type="button">
+          返回章节
+        </button>
       </div>
     </section>
 
@@ -33,7 +79,7 @@
       </header>
 
       <div class="dress-layout">
-        <!-- 背景层与完整人物立绘层互相独立，不使用上装、下装图片图层。 -->
+        <!-- 背景层与完整人物立绘层互相独立，不使用任何服装图片图层。 -->
         <section class="character-panel" aria-label="角色预览">
           <div class="character-stage">
             <img
@@ -84,18 +130,32 @@
           </div>
 
           <div class="current-selection" aria-live="polite">
+            <p>发型：<strong id="currentHairText">默认深色长发</strong></p>
             <p>上装：<strong id="currentTopText">未选择</strong></p>
             <p>下装：<strong id="currentBottomText">未选择</strong></p>
             <p>连衣裙：<strong id="currentDressText">未选择</strong></p>
+            <p>鞋子：<strong id="currentShoesText">未选择</strong></p>
           </div>
         </section>
 
         <!-- 服装选择区 -->
         <section class="wardrobe-panel" aria-label="服装选择">
+          <!-- 仅在剧情模式中显示当前关卡目标。 -->
+          <section id="storyMissionBanner" class="story-mission-banner is-hidden">
+            <div>
+              <span>当前剧情关卡</span>
+              <strong id="storyMissionName">-</strong>
+            </div>
+            <p>目标属性：<b id="storyMissionAttrs">-</b></p>
+            <button id="departBtn" class="primary-button small" type="button">
+              出发
+            </button>
+          </section>
+
           <div class="wardrobe-heading">
             <p class="eyebrow">CHOOSE YOUR LOOK</p>
             <h2>选择服装</h2>
-            <p>上装和下装可以自由组合，连衣裙会替换整套搭配。</p>
+            <p>发型和鞋子可搭配任意服装，切换时不会清空当前搭配。</p>
           </div>
 
           <!-- 分类按钮只负责切换列表，不会改变当前穿搭。 -->
@@ -104,9 +164,17 @@
               class="category-button is-active"
               type="button"
               role="tab"
+              data-category="hair"
+              aria-controls="hairPanel"
+              aria-selected="true"
+            >发型</button>
+            <button
+              class="category-button"
+              type="button"
+              role="tab"
               data-category="top"
               aria-controls="topPanel"
-              aria-selected="true"
+              aria-selected="false"
             >上装</button>
             <button
               class="category-button"
@@ -124,11 +192,44 @@
               aria-controls="dressPanel"
               aria-selected="false"
             >连衣裙</button>
+            <button
+              class="category-button"
+              type="button"
+              role="tab"
+              data-category="shoes"
+              aria-controls="shoesPanel"
+              aria-selected="false"
+            >鞋子</button>
           </div>
 
           <section
-            id="topPanel"
+            id="hairPanel"
             class="clothes-section category-panel"
+            data-category-panel="hair"
+            aria-labelledby="hairTitle"
+          >
+            <h3 id="hairTitle">发型</h3>
+            <div id="hairOptions" class="clothes-grid">
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="hair"
+                data-id="hair2"
+                aria-label="选择金色长卷发"
+                aria-pressed="false"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/hair/hair2_thumb.png" alt="">
+                </span>
+                <span class="clothes-name">金色长卷发</span>
+                  <span class="clothes-attributes">华丽 / 甜美</span>
+              </button>
+            </div>
+          </section>
+
+          <section
+            id="topPanel"
+            class="clothes-section category-panel is-hidden"
             data-category-panel="top"
             aria-labelledby="topTitle"
           >
@@ -144,7 +245,8 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/top/top1_thumb.png" alt="">
                 </span>
-                <span>粉色蝴蝶结上衣</span>
+                <span class="clothes-name">粉色泡泡袖上衣</span>
+                  <span class="clothes-attributes">甜美 / 可爱</span>
               </button>
 
               <button
@@ -157,7 +259,8 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/top/top2_thumb.png" alt="">
                 </span>
-                <span>蓝色学院风上衣</span>
+                <span class="clothes-name">蓝色水手领米色短袖上装</span>
+                  <span class="clothes-attributes">清凉 / 日常</span>
               </button>
 
               <button
@@ -170,7 +273,8 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/top/top3_thumb.png" alt="">
                 </span>
-                <span>粉色领结白衬衫</span>
+                <span class="clothes-name">OL 风上装</span>
+                  <span class="clothes-attributes">优雅 / 日常</span>
               </button>
             </div>
           </section>
@@ -193,7 +297,8 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/bottom/bottom1_thumb.png" alt="">
                 </span>
-                <span>百褶短裙</span>
+                <span class="clothes-name">粉色高腰百褶短裙</span>
+                  <span class="clothes-attributes">可爱 / 甜美</span>
               </button>
 
               <button
@@ -206,7 +311,8 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/bottom/bottom2_thumb.png" alt="">
                 </span>
-                <span>奶油色短裤</span>
+                <span class="clothes-name">米色高腰短裤</span>
+                  <span class="clothes-attributes">日常 / 清凉</span>
               </button>
 
               <button
@@ -219,7 +325,8 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/bottom/bottom3_thumb.png" alt="">
                 </span>
-                <span>深蓝通勤半身裙</span>
+                <span class="clothes-name">深色高腰铅笔裙</span>
+                  <span class="clothes-attributes">优雅 / 酷帅</span>
               </button>
             </div>
           </section>
@@ -242,8 +349,88 @@
                 <span class="thumbnail-box">
                   <img src="assets/clothes/dress/dress1_thumb.png" alt="">
                 </span>
-                <span>甜心蝴蝶结连衣裙</span>
+                <span class="clothes-name">粉色蓬蓬连衣裙</span>
+                  <span class="clothes-attributes">华丽 / 甜美</span>
               </button>
+            </div>
+          </section>
+
+          <section
+            id="shoesPanel"
+            class="clothes-section category-panel is-hidden"
+            data-category-panel="shoes"
+            aria-labelledby="shoesTitle"
+          >
+            <h3 id="shoesTitle">鞋子</h3>
+            <div id="shoesOptions" class="clothes-grid">
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="shoes"
+                data-id="shoes1"
+                aria-label="选择粉色蝴蝶结鞋"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/shoes/shoes1_thumb.png" alt="">
+                </span>
+                <span class="clothes-name">粉色玛丽珍鞋</span>
+                  <span class="clothes-attributes">可爱 / 甜美</span>
+              </button>
+
+              <button
+                class="clothes-card"
+                type="button"
+                data-type="shoes"
+                data-id="shoes2"
+                aria-label="选择成熟裸色低跟鞋"
+              >
+                <span class="thumbnail-box">
+                  <img src="assets/clothes/shoes/shoes2_thumb.png" alt="">
+                </span>
+                <span class="clothes-name">裸色尖头低跟鞋</span>
+                  <span class="clothes-attributes">优雅 / 日常</span>
+              </button>
+            </div>
+          </section>
+
+          <!--
+            评分计算代码继续保留，但自由换装不展示评分界面。
+            这段旧结果区域保持隐藏，仅用于兼容已有页面元素引用。
+          -->
+          <section class="score-panel is-hidden" aria-hidden="true">
+            <div class="score-panel-heading">
+              <div>
+                <p class="eyebrow">STYLE CHALLENGE</p>
+                <h3 id="scorePanelTitle">主题评分</h3>
+              </div>
+              <span>满分 100</span>
+            </div>
+
+            <div class="score-controls">
+              <label id="levelSelectLabel" for="levelSelect">选择关卡</label>
+              <select id="levelSelect"></select>
+              <div id="storyScoreTarget" class="story-score-target is-hidden"></div>
+              <button id="scoreButton" class="primary-button small" type="button">
+                开始评分
+              </button>
+            </div>
+
+            <div id="scoreResult" class="score-result is-hidden" aria-live="polite">
+              <div class="score-summary">
+                <div>
+                  <span>当前关卡</span>
+                  <strong id="scoreLevelName">-</strong>
+                  <small>目标属性：<b id="scoreTargetAttrs">-</b></small>
+                </div>
+                <div class="score-number">
+                  <strong id="scoreTotal">0</strong>
+                  <span>/ 100</span>
+                </div>
+                <div id="scoreRank" class="score-rank" data-rank="C">C</div>
+              </div>
+              <p id="scorePassState" class="score-pass-state"></p>
+              <ul id="scoreDetails" class="score-details"></ul>
+              <div id="storyResultActions" class="story-result-actions is-hidden"></div>
             </div>
           </section>
 
@@ -260,6 +447,29 @@
   <!-- 操作结果提示 -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="./main.js"></script>
+  <!-- 剧情对话弹窗，逐句显示当前关卡台词。 -->
+  <div
+    id="storyDialog"
+    class="story-dialog is-hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="storySpeaker"
+  >
+    <div class="story-dialog-backdrop"></div>
+    <section class="story-dialog-card">
+      <p class="eyebrow">STORY</p>
+      <h2 id="storySpeaker">旁白</h2>
+      <p id="storyText" class="story-text"></p>
+      <div class="story-dialog-footer">
+        <span id="storyStepText">1 / 1</span>
+        <button id="nextStoryButton" class="primary-button small" type="button">
+          下一句
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script src="./data/storyLevels.js?v=20260614-2"></script>
+  <script src="./main.js?v=20260614-2"></script>
 </body>
 </html>

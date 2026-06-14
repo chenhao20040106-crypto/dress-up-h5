@@ -92,6 +92,16 @@ img {
   line-height: 1.8;
 }
 
+.home-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.home-actions .secondary-button {
+  min-width: 168px;
+}
+
 /* 通用按钮 */
 .primary-button,
 .secondary-button,
@@ -157,6 +167,123 @@ img {
   justify-self: start;
 }
 
+/* 剧情关卡选择页 */
+.story-level-page {
+  padding: 4px 0 24px;
+}
+
+.chapter-card {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.chapter-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.chapter-heading h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.chapter-heading p:last-child {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.chapter-heading > span {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--pink-dark);
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--pink-soft);
+}
+
+.story-level-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.story-level-card {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 22px;
+  text-align: left;
+  background: #fff8fb;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.story-level-card:hover {
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+
+.story-level-card.is-passed {
+  border-color: #a9dfca;
+  background: #f2fff9;
+}
+
+.story-level-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.story-level-card strong {
+  font-size: 18px;
+}
+
+.story-level-status {
+  flex: 0 0 auto;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: #9a7181;
+  font-size: 11px;
+  font-weight: 800;
+  background: #f6eaf0;
+}
+
+.story-level-card.is-passed .story-level-status {
+  color: #398467;
+  background: #dcf7eb;
+}
+
+.story-level-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.story-level-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.story-level-meta span {
+  padding: 5px 8px;
+  border-radius: 9px;
+  color: var(--pink-dark);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--pink-soft);
+}
+
 /* 左右两栏布局 */
 .dress-layout {
   display: grid;
@@ -180,7 +307,7 @@ img {
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 22px;
-  background: #f8edf2;
+  background: transparent;
   isolation: isolate;
 }
 
@@ -201,6 +328,7 @@ img {
   z-index: 1;
   object-fit: contain;
   object-position: center;
+  background: transparent;
   pointer-events: none;
 }
 
@@ -243,7 +371,7 @@ img {
 
 .current-selection {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-top: 14px;
 }
@@ -264,15 +392,51 @@ img {
   color: var(--pink-dark);
 }
 
-.current-selection p:last-child {
-  grid-column: 1 / -1;
-}
-
 /* 右侧衣柜 */
 .wardrobe-panel {
   display: flex;
   min-height: 620px;
   flex-direction: column;
+}
+
+.story-mission-banner {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid #eadffd;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fff0f6, #f4f0ff);
+}
+
+.story-mission-banner > div,
+.story-mission-banner p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.story-mission-banner span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.story-mission-banner strong {
+  color: var(--pink-dark);
+}
+
+.story-mission-banner p {
+  margin: 8px 0 0;
+  color: #756873;
+  font-size: 13px;
+}
+
+.story-mission-banner p span {
+  margin-left: auto;
+}
+
+.story-mission-banner > .primary-button {
+  width: 100%;
+  margin-top: 12px;
 }
 
 .wardrobe-heading h2 {
@@ -289,7 +453,7 @@ img {
 /* 服装分类页签 */
 .category-tabs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
   margin-bottom: 18px;
   padding: 5px;
@@ -342,10 +506,29 @@ img {
   transform: translateY(-2px);
 }
 
-.clothes-card.is-active {
+.clothes-card.is-active,
+.clothes-card.selected {
   border-color: var(--pink);
   color: var(--pink-dark);
   background: var(--pink-soft);
+}
+
+.clothes-name,
+.clothes-attributes {
+  display: block;
+}
+
+.clothes-name {
+  min-height: 2.8em;
+  line-height: 1.4;
+}
+
+.clothes-attributes {
+  margin-top: 5px;
+  color: var(--pink-dark);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .thumbnail-box {
@@ -370,6 +553,194 @@ img {
   color: var(--muted);
   font-size: 12px;
   content: "图片待补充";
+}
+
+/* 主题评分区域 */
+.score-panel {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #fffafd;
+}
+
+.score-panel-heading,
+.score-summary,
+.score-detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.score-panel-heading h3 {
+  margin: 0;
+}
+
+.score-panel-heading > span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--pink-dark);
+  font-size: 12px;
+  font-weight: 800;
+  background: var(--pink-soft);
+}
+
+.score-controls {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.score-controls.is-story-mode {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.score-controls label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.score-controls select {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--ink);
+  font: inherit;
+  background: var(--white);
+}
+
+.story-score-target {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--pink-dark);
+  font-size: 13px;
+  font-weight: 800;
+  background: var(--white);
+}
+
+.score-controls .primary-button {
+  padding: 11px 16px;
+}
+
+.score-result {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fff0f6, #f6f1ff);
+}
+
+.score-summary > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.score-summary span,
+.score-summary small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.score-number {
+  display: flex;
+  align-items: baseline;
+  margin-left: auto;
+}
+
+.score-number strong {
+  color: var(--pink-dark);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.score-rank {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  place-items: center;
+  color: var(--white);
+  font-size: 25px;
+  font-weight: 900;
+  background: #a49aa2;
+}
+
+.score-rank[data-rank="S"] {
+  background: linear-gradient(135deg, #f2b84b, #f07c76);
+}
+
+.score-rank[data-rank="A"] {
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+}
+
+.score-rank[data-rank="B"] {
+  background: #6c9ecf;
+}
+
+.score-pass-state {
+  margin: 12px 0 0;
+  color: #9a667b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.score-pass-state.is-passed {
+  color: #398467;
+}
+
+.score-details {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.score-details li {
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.score-detail-heading b {
+  color: var(--pink-dark);
+}
+
+.score-contributions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.score-details small {
+  display: block;
+  margin-top: 5px;
+  color: #a87888;
+  font-size: 10px;
+}
+
+.score-detail-empty {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.story-result-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.story-result-actions button {
+  flex: 1;
 }
 
 .action-bar {
@@ -408,6 +779,94 @@ img {
   transform: translate(-50%, 0);
 }
 
+/* 剧情成功与失败结果页 */
+.story-result-page {
+  display: grid;
+  place-items: center;
+}
+
+.story-final-card {
+  width: min(100%, 520px);
+  padding: 54px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 32px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.story-final-view h2 {
+  margin: 0;
+  font-size: clamp(38px, 8vw, 56px);
+}
+
+.story-final-view p:last-child {
+  margin: 16px 0 30px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+#successResultView h2 {
+  color: #398467;
+}
+
+#failResultView h2 {
+  color: var(--pink-dark);
+}
+
+/* 剧情对话弹窗 */
+.story-dialog {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  padding: 20px;
+  place-items: end center;
+}
+
+.story-dialog-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 43, 54, 0.52);
+  backdrop-filter: blur(4px);
+}
+
+.story-dialog-card {
+  position: relative;
+  width: min(100%, 680px);
+  margin-bottom: 4vh;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 24px 70px rgba(57, 39, 49, 0.28);
+}
+
+.story-dialog-card h2 {
+  margin: 0;
+  color: var(--pink-dark);
+  font-size: 23px;
+}
+
+.story-text {
+  min-height: 3.5em;
+  margin: 14px 0 22px;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.story-dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.story-dialog-footer > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
 /* 平板与手机适配 */
 @media (max-width: 780px) {
   .game-shell {
@@ -430,6 +889,10 @@ img {
   .wardrobe-panel {
     min-height: 560px;
   }
+
+  .story-level-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 430px) {
@@ -444,6 +907,14 @@ img {
 
   .home-card h1 {
     font-size: 48px;
+  }
+
+  .home-actions {
+    flex-direction: column;
+  }
+
+  .home-actions button {
+    width: 100%;
   }
 
   .game-header {
@@ -469,8 +940,41 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .current-selection p:last-child {
-    grid-column: auto;
+  .chapter-card {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .chapter-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .chapter-heading h2 {
+    font-size: 24px;
+  }
+
+  .chapter-heading > span {
+    align-self: flex-start;
+  }
+
+  .story-level-card {
+    padding: 16px;
+  }
+
+  .story-mission-banner > div,
+  .story-mission-banner p {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .story-mission-banner p span {
+    margin-left: 0;
+  }
+
+  .category-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .clothes-grid {
@@ -482,6 +986,27 @@ img {
     font-size: 13px;
   }
 
+  .score-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .score-controls.is-story-mode {
+    grid-template-columns: 1fr;
+  }
+
+  .score-controls .primary-button {
+    width: 100%;
+  }
+
+  .score-summary {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .score-number {
+    margin-left: 0;
+  }
+
   .action-bar {
     gap: 6px;
   }
@@ -490,5 +1015,28 @@ img {
     padding-right: 8px;
     padding-left: 8px;
     font-size: 12px;
+  }
+
+  .story-dialog {
+    padding: 12px;
+  }
+
+  .story-dialog-card {
+    margin-bottom: 2vh;
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .story-result-actions {
+    flex-direction: column;
+  }
+
+  .story-text {
+    font-size: 15px;
+  }
+
+  .story-final-card {
+    padding: 44px 20px;
+    border-radius: 26px;
   }
 }
