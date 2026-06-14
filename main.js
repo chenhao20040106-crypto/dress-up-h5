@@ -391,11 +391,6 @@ const storyLevelList = document.querySelector("#storyLevelList");
 const bgImage = document.querySelector("#bgImage");
 const characterImage = document.querySelector("#characterImage");
 const backgroundOptions = document.querySelector("#backgroundOptions");
-const currentHairText = document.querySelector("#currentHairText");
-const currentTopText = document.querySelector("#currentTopText");
-const currentBottomText = document.querySelector("#currentBottomText");
-const currentDressText = document.querySelector("#currentDressText");
-const currentShoesText = document.querySelector("#currentShoesText");
 const clearButton = document.querySelector("#clearButton");
 const saveButton = document.querySelector("#saveButton");
 const loadButton = document.querySelector("#loadButton");
@@ -676,7 +671,7 @@ function handleClothesClick(event) {
 }
 
 /**
- * 更新按钮选中状态，以及角色下方的文字说明。
+ * 更新衣物按钮的选中状态。
  */
 function updateSelectionDisplay() {
   const clothesButtons = document.querySelectorAll(".clothes-card");
@@ -708,26 +703,6 @@ function updateSelectionDisplay() {
       String(isSelected)
     );
   });
-
-  currentHairText.textContent = HAIR_OPTIONS[currentHair]
-    ? HAIR_OPTIONS[currentHair].name
-    : HAIR_OPTIONS.hair1.name;
-
-  currentTopText.textContent = currentTop
-    ? TOP_OPTIONS[currentTop].name
-    : "未选择";
-
-  currentBottomText.textContent = currentBottom
-    ? BOTTOM_OPTIONS[currentBottom].name
-    : "未选择";
-
-  currentDressText.textContent = currentDress
-    ? DRESS_OPTIONS[currentDress].name
-    : "未选择";
-
-  currentShoesText.textContent = currentShoes
-    ? SHOES_OPTIONS[currentShoes].name
-    : "未选择";
 }
 
 /**
