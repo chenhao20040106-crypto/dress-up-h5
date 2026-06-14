@@ -9,7 +9,7 @@
         {
           "speaker": "小晴",
           "text": "咦？窗边怎么多了一封粉色的邀请函？",
-          "avatar": "assets/character/body.png"
+          "avatar": "assets/character/hair1/base/base.png"
         },
         {
           "speaker": "米娅",
@@ -19,7 +19,7 @@
         {
           "speaker": "小晴",
           "text": "那我要选择甜美又可爱的衣服，让自己看起来像春天一样明亮。",
-          "avatar": "assets/character/body.png"
+          "avatar": "assets/character/hair1/base/base.png"
         },
         {
           "speaker": "米娅",
@@ -42,7 +42,7 @@
         {
           "speaker": "小晴",
           "text": "当然愿意！不过街头主题应该穿什么呢？",
-          "avatar": "assets/character/body.png"
+          "avatar": "assets/character/hair1/base/base.png"
         },
         {
           "speaker": "摄影师阿洛",
@@ -52,7 +52,7 @@
         {
           "speaker": "小晴",
           "text": "明白了，我要用酷感搭配完成这次摄影挑战！",
-          "avatar": "assets/character/body.png"
+          "avatar": "assets/character/hair1/base/base.png"
         }
       ]
     },
@@ -70,7 +70,7 @@
         {
           "speaker": "小晴",
           "text": "太惊喜了！这样的场合，我是不是应该打扮得正式一点？",
-          "avatar": "assets/character/body.png"
+          "avatar": "assets/character/hair1/base/base.png"
         },
         {
           "speaker": "店长露娜",
@@ -80,7 +80,7 @@
         {
           "speaker": "小晴",
           "text": "那就开始准备吧，我想带着最闪亮的心情走进音乐厅。",
-          "avatar": "assets/character/body.png"
+          "avatar": "assets/character/hair1/base/base.png"
         }
       ]
     }

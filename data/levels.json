@@ -2,38 +2,38 @@
   "levels": [
     {
       "levelId": "level_01",
-      "title": "甜心下午茶",
-      "description": "穿上甜美又可爱的服装，参加花园里的下午茶聚会。",
-      "targetTags": ["sweet", "cute"],
-      "passScore": 70
-    },
-    {
-      "levelId": "level_02",
-      "title": "都市酷女孩",
-      "description": "用利落又有个性的搭配，完成今天的街头时尚挑战。",
-      "targetTags": ["cool", "daily"],
-      "passScore": 72
-    },
-    {
-      "levelId": "level_03",
-      "title": "优雅音乐会",
-      "description": "选择优雅精致的造型，盛装出席夜晚音乐会。",
-      "targetTags": ["elegant", "party"],
+      "title": "甜美约会",
+      "description": "用甜美和可爱的单品完成约会造型。",
+      "targetAttrs": ["sweet", "cute"],
       "passScore": 75
     },
     {
+      "levelId": "level_02",
+      "title": "职场通勤",
+      "description": "搭配优雅、日常的成熟通勤造型。",
+      "targetAttrs": ["elegant", "daily"],
+      "passScore": 75
+    },
+    {
+      "levelId": "level_03",
+      "title": "华丽舞会",
+      "description": "选择华丽且优雅的服饰参加舞会。",
+      "targetAttrs": ["gorgeous", "elegant"],
+      "passScore": 80
+    },
+    {
       "levelId": "level_04",
-      "title": "校园好天气",
-      "description": "搭配自然、可爱又适合日常活动的校园穿搭。",
-      "targetTags": ["cute", "daily"],
-      "passScore": 68
+      "title": "清新出游",
+      "description": "用清凉、日常的搭配迎接轻松出游。",
+      "targetAttrs": ["fresh", "daily"],
+      "passScore": 70
     },
     {
       "levelId": "level_05",
-      "title": "梦幻生日派对",
-      "description": "用甜美华丽的单品，成为生日派对上最闪亮的主角。",
-      "targetTags": ["sweet", "elegant", "party"],
-      "passScore": 100
+      "title": "酷帅街拍",
+      "description": "完成兼具酷帅和日常感的街拍造型。",
+      "targetAttrs": ["cool", "daily"],
+      "passScore": 70
     }
   ]
 }
