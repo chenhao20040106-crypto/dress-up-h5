@@ -5,7 +5,7 @@ const SAVE_KEY = "dress-up-h5-full-character-outfit";
 const STORY_PROGRESS_KEY = "dress-up-h5-passed-story-levels";
 
 // 没有选择任何服装时显示的默认人物立绘。
-const BASE_IMAGE = "assets/character/base.png";
+const BASE_IMAGE = "assets/character/hair1/base/base.png";
 
 // 游戏支持的三个独立背景。
 const BACKGROUND_OPTIONS = [
@@ -87,14 +87,14 @@ const HAIR_OPTIONS = {
     id: "hair1",
     name: "默认深色长发",
     type: "hair",
-    baseImage: "assets/character/base.png",
+    baseImage: "assets/character/hair1/base/base.png",
     scorable: false
   },
   hair2: {
     id: "hair2",
     name: "金色长卷发",
     type: "hair",
-    baseImage: "assets/character/hair2_base.png",
+    baseImage: "assets/character/hair2/base/hair2_base.png",
     thumb: "assets/clothes/hair/hair2_thumb.png",
     primaryAttr: "gorgeous",
     secondaryAttr: "sweet",
@@ -114,7 +114,7 @@ const TOP_OPTIONS = {
     name: "粉色泡泡袖上衣",
     type: "top",
     thumb: "assets/clothes/top/top1_thumb.png",
-    onlyImage: "assets/character/top1_only.png",
+    onlyImage: "assets/character/hair1/top/top1_only.png",
     primaryAttr: "sweet",
     secondaryAttr: "cute",
     primaryScore: 18,
@@ -125,7 +125,7 @@ const TOP_OPTIONS = {
     name: "蓝色水手领米色短袖上装",
     type: "top",
     thumb: "assets/clothes/top/top2_thumb.png",
-    onlyImage: "assets/character/top2_only.png",
+    onlyImage: "assets/character/hair1/top/top2_only.png",
     primaryAttr: "fresh",
     secondaryAttr: "daily",
     primaryScore: 17,
@@ -136,7 +136,7 @@ const TOP_OPTIONS = {
     name: "OL 风上装",
     type: "top",
     thumb: "assets/clothes/top/top3_thumb.png",
-    onlyImage: "assets/character/top3_only.png",
+    onlyImage: "assets/character/hair1/top/top3_only.png",
     primaryAttr: "elegant",
     secondaryAttr: "daily",
     primaryScore: 18,
@@ -154,7 +154,7 @@ const BOTTOM_OPTIONS = {
     name: "粉色高腰百褶短裙",
     type: "bottom",
     thumb: "assets/clothes/bottom/bottom1_thumb.png",
-    onlyImage: "assets/character/bottom1_only.png",
+    onlyImage: "assets/character/hair1/bottom/bottom1_only.png",
     primaryAttr: "cute",
     secondaryAttr: "sweet",
     primaryScore: 18,
@@ -165,7 +165,7 @@ const BOTTOM_OPTIONS = {
     name: "米色高腰短裤",
     type: "bottom",
     thumb: "assets/clothes/bottom/bottom2_thumb.png",
-    onlyImage: "assets/character/bottom2_only.png",
+    onlyImage: "assets/character/hair1/bottom/bottom2_only.png",
     primaryAttr: "daily",
     secondaryAttr: "fresh",
     primaryScore: 17,
@@ -176,7 +176,7 @@ const BOTTOM_OPTIONS = {
     name: "深色高腰铅笔裙",
     type: "bottom",
     thumb: "assets/clothes/bottom/bottom3_thumb.png",
-    onlyImage: "assets/character/bottom3_only.png",
+    onlyImage: "assets/character/hair1/bottom/bottom3_only.png",
     primaryAttr: "elegant",
     secondaryAttr: "cool",
     primaryScore: 18,
@@ -193,7 +193,7 @@ const DRESS_OPTIONS = {
     name: "粉色蓬蓬连衣裙",
     type: "dress",
     thumb: "assets/clothes/dress/dress1_thumb.png",
-    image: "assets/character/dress1.png",
+    image: "assets/character/hair1/dress/dress1.png",
     primaryAttr: "gorgeous",
     secondaryAttr: "sweet",
     primaryScore: 32,
@@ -210,7 +210,7 @@ const SHOES_OPTIONS = {
     name: "粉色玛丽珍鞋",
     type: "shoes",
     thumb: "assets/clothes/shoes/shoes1_thumb.png",
-    onlyImage: "assets/character/shoes1_only.png",
+    onlyImage: "assets/character/hair1/shoes1/shoes1_only.png",
     primaryAttr: "cute",
     secondaryAttr: "sweet",
     primaryScore: 10,
@@ -221,7 +221,7 @@ const SHOES_OPTIONS = {
     name: "裸色尖头低跟鞋",
     type: "shoes",
     thumb: "assets/clothes/shoes/shoes2_thumb.png",
-    onlyImage: "assets/character/shoes2_only.png",
+    onlyImage: "assets/character/hair1/shoes2/shoes2_only.png",
     primaryAttr: "elegant",
     secondaryAttr: "daily",
     primaryScore: 10,
@@ -234,75 +234,75 @@ const SHOES_OPTIONS = {
  * 这里先保留旧的四段式 key，随后统一加上 hair1 前缀。
  */
 const HAIR1_OUTFIT_PATHS = {
-  none_none_none_none: "assets/character/base.png",
-  none_none_none_shoes1: "assets/character/shoes1_only.png",
-  none_none_none_shoes2: "assets/character/shoes2_only.png",
-  top1_none_none_none: "assets/character/top1_only.png",
-  top2_none_none_none: "assets/character/top2_only.png",
-  top3_none_none_none: "assets/character/top3_only.png",
-  top1_none_none_shoes1: "assets/character/top1_shoes1.png",
-  top2_none_none_shoes1: "assets/character/top2_shoes1.png",
-  top3_none_none_shoes1: "assets/character/top3_shoes1.png",
-  top1_none_none_shoes2: "assets/character/top1_shoes2.png",
-  top2_none_none_shoes2: "assets/character/top2_shoes2.png",
-  top3_none_none_shoes2: "assets/character/top3_shoes2.png",
-  none_bottom1_none_none: "assets/character/bottom1_only.png",
-  none_bottom2_none_none: "assets/character/bottom2_only.png",
-  none_bottom3_none_none: "assets/character/bottom3_only.png",
-  none_bottom1_none_shoes1: "assets/character/bottom1_shoes1.png",
-  none_bottom2_none_shoes1: "assets/character/bottom2_shoes1.png",
-  none_bottom3_none_shoes1: "assets/character/bottom3_shoes1.png",
-  none_bottom1_none_shoes2: "assets/character/bottom1_shoes2.png",
-  none_bottom2_none_shoes2: "assets/character/bottom2_shoes2.png",
-  none_bottom3_none_shoes2: "assets/character/bottom3_shoes2.png",
-  top1_bottom1_none_none: "assets/character/outfit_top1_bottom1.png",
-  top1_bottom2_none_none: "assets/character/outfit_top1_bottom2.png",
-  top1_bottom3_none_none: "assets/character/outfit_top1_bottom3.png",
-  top2_bottom1_none_none: "assets/character/outfit_top2_bottom1.png",
-  top2_bottom2_none_none: "assets/character/outfit_top2_bottom2.png",
-  top2_bottom3_none_none: "assets/character/outfit_top2_bottom3.png",
-  top3_bottom1_none_none: "assets/character/outfit_top3_bottom1.png",
-  top3_bottom2_none_none: "assets/character/outfit_top3_bottom2.png",
-  top3_bottom3_none_none: "assets/character/outfit_top3_bottom3.png",
+  none_none_none_none: "assets/character/hair1/base/base.png",
+  none_none_none_shoes1: "assets/character/hair1/shoes1/shoes1_only.png",
+  none_none_none_shoes2: "assets/character/hair1/shoes2/shoes2_only.png",
+  top1_none_none_none: "assets/character/hair1/top/top1_only.png",
+  top2_none_none_none: "assets/character/hair1/top/top2_only.png",
+  top3_none_none_none: "assets/character/hair1/top/top3_only.png",
+  top1_none_none_shoes1: "assets/character/hair1/shoes1/top1_shoes1.png",
+  top2_none_none_shoes1: "assets/character/hair1/shoes1/top2_shoes1.png",
+  top3_none_none_shoes1: "assets/character/hair1/shoes1/top3_shoes1.png",
+  top1_none_none_shoes2: "assets/character/hair1/shoes2/top1_shoes2.png",
+  top2_none_none_shoes2: "assets/character/hair1/shoes2/top2_shoes2.png",
+  top3_none_none_shoes2: "assets/character/hair1/shoes2/top3_shoes2.png",
+  none_bottom1_none_none: "assets/character/hair1/bottom/bottom1_only.png",
+  none_bottom2_none_none: "assets/character/hair1/bottom/bottom2_only.png",
+  none_bottom3_none_none: "assets/character/hair1/bottom/bottom3_only.png",
+  none_bottom1_none_shoes1: "assets/character/hair1/shoes1/bottom1_shoes1.png",
+  none_bottom2_none_shoes1: "assets/character/hair1/shoes1/bottom2_shoes1.png",
+  none_bottom3_none_shoes1: "assets/character/hair1/shoes1/bottom3_shoes1.png",
+  none_bottom1_none_shoes2: "assets/character/hair1/shoes2/bottom1_shoes2.png",
+  none_bottom2_none_shoes2: "assets/character/hair1/shoes2/bottom2_shoes2.png",
+  none_bottom3_none_shoes2: "assets/character/hair1/shoes2/bottom3_shoes2.png",
+  top1_bottom1_none_none: "assets/character/hair1/outfit/outfit_top1_bottom1.png",
+  top1_bottom2_none_none: "assets/character/hair1/outfit/outfit_top1_bottom2.png",
+  top1_bottom3_none_none: "assets/character/hair1/outfit/outfit_top1_bottom3.png",
+  top2_bottom1_none_none: "assets/character/hair1/outfit/outfit_top2_bottom1.png",
+  top2_bottom2_none_none: "assets/character/hair1/outfit/outfit_top2_bottom2.png",
+  top2_bottom3_none_none: "assets/character/hair1/outfit/outfit_top2_bottom3.png",
+  top3_bottom1_none_none: "assets/character/hair1/outfit/outfit_top3_bottom1.png",
+  top3_bottom2_none_none: "assets/character/hair1/outfit/outfit_top3_bottom2.png",
+  top3_bottom3_none_none: "assets/character/hair1/outfit/outfit_top3_bottom3.png",
   top1_bottom1_none_shoes1:
-    "assets/character/outfit_top1_bottom1_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top1_bottom1_shoes1.png",
   top1_bottom2_none_shoes1:
-    "assets/character/outfit_top1_bottom2_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top1_bottom2_shoes1.png",
   top1_bottom3_none_shoes1:
-    "assets/character/outfit_top1_bottom3_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top1_bottom3_shoes1.png",
   top2_bottom1_none_shoes1:
-    "assets/character/outfit_top2_bottom1_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top2_bottom1_shoes1.png",
   top2_bottom2_none_shoes1:
-    "assets/character/outfit_top2_bottom2_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top2_bottom2_shoes1.png",
   top2_bottom3_none_shoes1:
-    "assets/character/outfit_top2_bottom3_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top2_bottom3_shoes1.png",
   top3_bottom1_none_shoes1:
-    "assets/character/outfit_top3_bottom1_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top3_bottom1_shoes1.png",
   top3_bottom2_none_shoes1:
-    "assets/character/outfit_top3_bottom2_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top3_bottom2_shoes1.png",
   top3_bottom3_none_shoes1:
-    "assets/character/outfit_top3_bottom3_shoes1.png",
+    "assets/character/hair1/outfit-shoes1/outfit_top3_bottom3_shoes1.png",
   top1_bottom1_none_shoes2:
-    "assets/character/outfit_top1_bottom1_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top1_bottom1_shoes2.png",
   top1_bottom2_none_shoes2:
-    "assets/character/outfit_top1_bottom2_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top1_bottom2_shoes2.png",
   top1_bottom3_none_shoes2:
-    "assets/character/outfit_top1_bottom3_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top1_bottom3_shoes2.png",
   top2_bottom1_none_shoes2:
-    "assets/character/outfit_top2_bottom1_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top2_bottom1_shoes2.png",
   top2_bottom2_none_shoes2:
-    "assets/character/outfit_top2_bottom2_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top2_bottom2_shoes2.png",
   top2_bottom3_none_shoes2:
-    "assets/character/outfit_top2_bottom3_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top2_bottom3_shoes2.png",
   top3_bottom1_none_shoes2:
-    "assets/character/outfit_top3_bottom1_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top3_bottom1_shoes2.png",
   top3_bottom2_none_shoes2:
-    "assets/character/outfit_top3_bottom2_shoes2.png",
+    "assets/character/hair1/outfit-shoes2/outfit_top3_bottom2_shoes2.png",
   top3_bottom3_none_shoes2:
-    "assets/character/outfit_top3_bottom3_shoes2.png",
-  none_none_dress1_none: "assets/character/dress1.png",
-  none_none_dress1_shoes1: "assets/character/dress1_shoes1.png",
-  none_none_dress1_shoes2: "assets/character/dress1_shoes2.png"
+    "assets/character/hair1/outfit-shoes2/outfit_top3_bottom3_shoes2.png",
+  none_none_dress1_none: "assets/character/hair1/dress/dress1.png",
+  none_none_dress1_shoes1: "assets/character/hair1/shoes1/dress1_shoes1.png",
+  none_none_dress1_shoes2: "assets/character/hair1/shoes2/dress1_shoes2.png"
 };
 
 /*
@@ -331,30 +331,41 @@ function registerHair2Outfits() {
   shoesIds.forEach((shoesId) => {
     const shoesKey = shoesId || "none";
     const shoesSuffix = shoesId ? `_${shoesId}` : "";
+    const shoesFolder = shoesId || null;
 
     outfitMap[`hair2_none_none_none_${shoesKey}`] =
-      `assets/character/hair2_base${shoesSuffix}.png`;
+      shoesFolder
+        ? `assets/character/hair2/${shoesFolder}/hair2_base${shoesSuffix}.png`
+        : "assets/character/hair2/base/hair2_base.png";
 
     topIds.forEach((topId) => {
       outfitMap[`hair2_${topId}_none_none_${shoesKey}`] =
-        `assets/character/hair2_${topId}${shoesSuffix}.png`;
+        shoesFolder
+          ? `assets/character/hair2/${shoesFolder}/hair2_${topId}${shoesSuffix}.png`
+          : `assets/character/hair2/top/hair2_${topId}.png`;
     });
 
     bottomIds.forEach((bottomId) => {
       outfitMap[`hair2_none_${bottomId}_none_${shoesKey}`] =
-        `assets/character/hair2_${bottomId}${shoesSuffix}.png`;
+        shoesFolder
+          ? `assets/character/hair2/${shoesFolder}/hair2_${bottomId}${shoesSuffix}.png`
+          : `assets/character/hair2/bottom/hair2_${bottomId}.png`;
     });
 
     topIds.forEach((topId) => {
       bottomIds.forEach((bottomId) => {
         outfitMap[`hair2_${topId}_${bottomId}_none_${shoesKey}`] =
-          `assets/character/hair2_${topId}_${bottomId}${shoesSuffix}.png`;
+          shoesFolder
+            ? `assets/character/hair2/outfit-${shoesFolder}/hair2_${topId}_${bottomId}${shoesSuffix}.png`
+            : `assets/character/hair2/outfit/hair2_${topId}_${bottomId}.png`;
       });
     });
 
     Object.keys(DRESS_OPTIONS).forEach((dressId) => {
       outfitMap[`hair2_none_none_${dressId}_${shoesKey}`] =
-        `assets/character/hair2_${dressId}${shoesSuffix}.png`;
+        shoesFolder
+          ? `assets/character/hair2/${shoesFolder}/hair2_${dressId}${shoesSuffix}.png`
+          : `assets/character/hair2/dress/hair2_${dressId}.png`;
     });
   });
 }
