@@ -1013,3 +1013,256 @@ img {
     border-radius: 26px;
   }
 }
+
+/*
+ * 手机端换装页使用上下分屏：
+ * 上方角色始终可见，下方衣柜只在面板内部滚动。
+ * 其他首页、章节页和结果页继续使用原来的页面滚动方式。
+ */
+@media (max-width: 768px) {
+  .dress-page:not(.is-hidden) {
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding:
+      max(6px, env(safe-area-inset-top))
+      8px
+      max(6px, env(safe-area-inset-bottom));
+    flex-direction: column;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(255, 211, 228, 0.85), transparent 26%),
+      radial-gradient(circle at 88% 82%, rgba(218, 211, 255, 0.9), transparent 28%),
+      #fffafb;
+  }
+
+  .dress-page .game-header {
+    flex: 0 0 auto;
+    grid-template-columns: 88px minmax(0, 1fr) 88px;
+    min-height: 42px;
+    margin-bottom: 6px;
+  }
+
+  .dress-page .game-header .eyebrow {
+    display: none;
+  }
+
+  .dress-page .game-header h2 {
+    overflow: hidden;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dress-page .game-header .text-button {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .dress-page .dress-layout {
+    display: grid;
+    flex: 1;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1.16fr) minmax(0, 1fr);
+    gap: 8px;
+    overflow: hidden;
+  }
+
+  .dress-page .character-panel,
+  .dress-page .wardrobe-panel {
+    min-width: 0;
+    min-height: 0;
+    padding: 8px;
+    border-radius: 18px;
+  }
+
+  .dress-page .character-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .dress-page .character-stage {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    aspect-ratio: auto;
+    border-radius: 14px;
+  }
+
+  .dress-page .bg-layer,
+  .dress-page .character-layer {
+    width: 100%;
+    height: 100%;
+  }
+
+  .dress-page .character-layer {
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .dress-page .background-picker {
+    flex: 0 0 auto;
+    min-height: 34px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+
+  .dress-page .background-options {
+    gap: 6px;
+  }
+
+  .dress-page .background-button {
+    width: 32px;
+    height: 32px;
+    padding: 2px;
+  }
+
+  .dress-page .wardrobe-panel {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .dress-page .wardrobe-heading {
+    display: none;
+  }
+
+  .dress-page .story-mission-banner:not(.is-hidden) {
+    display: grid;
+    flex: 0 0 auto;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    gap: 2px 8px;
+    align-items: center;
+    margin: 0 0 6px;
+    padding: 6px 8px;
+    border-radius: 12px;
+  }
+
+  .dress-page .story-mission-banner > div,
+  .dress-page .story-mission-banner p {
+    display: block;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .dress-page .story-mission-banner > div span {
+    display: none;
+  }
+
+  .dress-page .story-mission-banner strong,
+  .dress-page .story-mission-banner b {
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dress-page .story-mission-banner p {
+    font-size: 11px;
+  }
+
+  .dress-page .story-mission-banner > .primary-button {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    width: auto;
+    margin: 0;
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+
+  .dress-page .category-tabs {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 4px;
+    margin-bottom: 6px;
+    padding: 3px;
+    overflow-x: auto;
+    border-radius: 13px;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+  }
+
+  .dress-page .category-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dress-page .category-button {
+    flex: 1 0 58px;
+    min-width: 58px;
+    padding: 7px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .dress-page .category-panel:not(.is-hidden) {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
+  .dress-page .clothes-section h3 {
+    display: none;
+  }
+
+  .dress-page .clothes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    padding: 2px 2px 10px;
+  }
+
+  .dress-page .clothes-card {
+    padding: 5px 5px 7px;
+    border-radius: 13px;
+    font-size: 11px;
+  }
+
+  .dress-page .thumbnail-box {
+    margin-bottom: 5px;
+    border-radius: 9px;
+  }
+
+  .dress-page .clothes-name {
+    min-height: 2.6em;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .dress-page .clothes-attributes {
+    margin-top: 3px;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .dress-page .action-bar {
+    position: relative;
+    z-index: 3;
+    flex: 0 0 auto;
+    gap: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    background: rgba(255, 255, 255, 0.96);
+  }
+
+  .dress-page .action-bar button {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+}
