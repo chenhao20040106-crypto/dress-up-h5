@@ -1106,6 +1106,7 @@ img {
   .dress-page .character-layer {
     object-fit: contain;
     object-position: center;
+    transform: translateY(16px);
   }
 
   .dress-page .background-picker {
