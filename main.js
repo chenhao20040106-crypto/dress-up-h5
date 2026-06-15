@@ -715,7 +715,9 @@ function loadPassedStoryLevels() {
       localStorage.getItem(STORY_PROGRESS_KEY) || "[]"
     );
 
-    return Array.isArray(savedProgress) ? savedProgress : [];
+    return Array.isArray(savedProgress)
+      ? [...new Set(savedProgress.filter((levelId) => typeof levelId === "string"))]
+      : [];
   } catch (error) {
     console.warn("剧情进度读取失败，将使用空进度：", error);
     return [];
@@ -745,10 +747,60 @@ function getFirstStoryChapter() {
 }
 
 /**
+ * 判断指定关卡是否已经通过。
+ */
+function isStoryLevelPassed(levelId) {
+  return passedStoryLevels.includes(levelId);
+}
+
+/**
+ * 查找关卡所在章节和它在章节中的顺序。
+ */
+function findStoryLevelPosition(levelId) {
+  for (const chapter of storyChapters) {
+    const levelIndex = chapter.levels.findIndex(
+      (level) => level.levelId === levelId
+    );
+
+    if (levelIndex !== -1) {
+      return { chapter, levelIndex };
+    }
+  }
+
+  return null;
+}
+
+/**
+ * 剧情关卡按顺序解锁：章节第一关默认开放，后续关卡需要先通过上一关。
+ * 已经通过的关卡始终允许再次挑战。
+ */
+function isStoryLevelUnlocked(levelId) {
+  if (isStoryLevelPassed(levelId)) {
+    return true;
+  }
+
+  const position = findStoryLevelPosition(levelId);
+
+  if (!position) {
+    return false;
+  }
+
+  if (position.levelIndex === 0) {
+    return true;
+  }
+
+  const previousLevel = position.chapter.levels[position.levelIndex - 1];
+  return isStoryLevelPassed(previousLevel.levelId);
+}
+
+/**
  * 将已通过的关卡加入本地进度；重复通关不会重复保存 id。
  */
 function markStoryLevelPassed(levelId) {
-  if (passedStoryLevels.includes(levelId)) {
+  // 写入前重新读取一次，避免覆盖其他页面刚刚保存的进度。
+  passedStoryLevels = loadPassedStoryLevels();
+
+  if (isStoryLevelPassed(levelId)) {
     return;
   }
 
@@ -757,7 +809,7 @@ function markStoryLevelPassed(levelId) {
 }
 
 /**
- * 渲染第一章四个关卡，并显示未通关或已通关状态。
+ * 渲染第一章四个关卡，并显示已通过、可挑战或未解锁状态。
  */
 function renderStoryLevelList() {
   const chapter = getFirstStoryChapter();
@@ -773,28 +825,45 @@ function renderStoryLevelList() {
   storyChapterDescription.textContent = chapter.description;
 
   const passedCount = chapter.levels.filter((level) =>
-    passedStoryLevels.includes(level.levelId)
+    isStoryLevelPassed(level.levelId)
   ).length;
   chapterProgress.textContent = `${passedCount} / ${chapter.levels.length} 已通关`;
 
   storyLevelList.innerHTML = chapter.levels
     .map((level) => {
-      const isPassed = passedStoryLevels.includes(level.levelId);
+      const isPassed = isStoryLevelPassed(level.levelId);
+      const isUnlocked = isStoryLevelUnlocked(level.levelId);
+      const isLocked = !isUnlocked;
+      const statusText = isPassed
+        ? "已通过"
+        : isUnlocked
+          ? "可挑战"
+          : "未解锁";
       const attrText = level.targetAttrs
         .map((attr) => ATTR_NAME_MAP[attr] || attr)
         .join(" / ");
 
       return `
         <button
-          class="story-level-card${isPassed ? " is-passed" : ""}"
+          class="story-level-card${
+            isPassed ? " is-passed" : isLocked ? " is-locked" : " is-unlocked"
+          }"
           type="button"
           data-story-level-id="${level.levelId}"
+          data-story-level-state="${
+            isPassed ? "passed" : isLocked ? "locked" : "unlocked"
+          }"
+          aria-label="${level.levelName}，${statusText}"
         >
           <span class="story-level-card-heading">
             <strong>${level.levelName}</strong>
-            <span class="story-level-status">${isPassed ? "已通关" : "未通关"}</span>
+            <span class="story-level-status">${statusText}</span>
           </span>
-          <p>根据场合提示，完成符合目标属性的造型。</p>
+          <p>${
+            isLocked
+              ? "请先通过上一关。"
+              : "根据场合提示，完成符合目标属性的造型。"
+          }</p>
           <span class="story-level-meta">
             <span>目标属性：${attrText}</span>
           </span>
@@ -922,6 +991,14 @@ function startStoryLevel(levelId) {
 
   if (!level) {
     showToast("找不到该剧情关卡");
+    return;
+  }
+
+  // 每次点击都读取最新存档，确保上一关通关后立即解锁下一关。
+  passedStoryLevels = loadPassedStoryLevels();
+
+  if (!isStoryLevelUnlocked(levelId)) {
+    showToast("请先通过上一关");
     return;
   }
 
@@ -1350,6 +1427,7 @@ function startFreeMode() {
 function showStoryLevelPage() {
   gameMode = "story";
   hideAllPages();
+  passedStoryLevels = loadPassedStoryLevels();
   renderStoryLevelList();
   storyLevelPage.classList.remove("is-hidden");
 }

@@ -236,6 +236,24 @@ img {
   background: #f2fff9;
 }
 
+.story-level-card.is-unlocked {
+  border-color: #f0cfdd;
+}
+
+.story-level-card.is-locked {
+  border-color: #e8e3e6;
+  color: #8f898c;
+  background: #f5f3f4;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+  opacity: 0.55;
+}
+
+.story-level-card.is-locked:hover {
+  border-color: #e8e3e6;
+  transform: none;
+}
+
 .story-level-card-heading {
   display: flex;
   align-items: center;
@@ -260,6 +278,16 @@ img {
 .story-level-card.is-passed .story-level-status {
   color: #398467;
   background: #dcf7eb;
+}
+
+.story-level-card.is-unlocked .story-level-status {
+  color: var(--pink-dark);
+  background: var(--pink-soft);
+}
+
+.story-level-card.is-locked .story-level-status {
+  color: #777174;
+  background: #e4dfe1;
 }
 
 .story-level-card p {
